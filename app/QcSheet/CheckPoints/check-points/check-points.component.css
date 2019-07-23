@@ -1,0 +1,139 @@
+
+
+.tableFixHead    { overflow-y: auto;  }
+.tableFixHead th { position: sticky; top: 0; }
+
+.first-col {
+  position: absolute;
+width: 5em;
+margin-left: -10em;
+}
+
+.table-wrapper {
+  overflow-x: scroll;
+width: 400px;
+margin: 0 auto;
+}
+
+/* dfdgdfgdfgdfgdfgdfgdf */
+
+/*   
+  div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+  div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  div.scrollmenu a:hover {
+    background-color: #777;
+  } */
+
+  #myWorkContent{
+    width: auto;
+    height:210px;
+    border: 13px solid #bed5cd;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+#SpacingDiv
+{
+  background-color: black;
+}
+
+#myWorkContent[_ngcontent-c8] {
+  white-space: normal;
+}
+
+.mat-cell, .mat-footer-cell {
+  font-size: 18px;
+ 
+}
+
+.tableHeaders
+{
+  text-align: center;
+  background-color: aqua;
+ 
+}
+
+.checkPointTD{
+  width : 50%;
+  padding: 10px;
+  font-weight: 50px
+ 
+}
+
+.numberTD{
+  text-align: center;
+  padding: 10px;
+}
+
+.developerTD{
+  text-align: left;
+  padding: 10px;
+  margin-left: 10px
+}
+
+.QCResourceTD{
+  text-align: Left;
+  padding: 10px;
+  margin-left: 1
+
+}
+.commentTD{
+  text-align: center;
+  padding: 10px;
+}
+
+/*       //////////////////////////////////////////////////////         */
+
+.zui-table {
+
+ 
+  border-collapse: separate;
+  border-spacing: 0;
+ 
+}
+.zui-table thead th {
+ 
+  text-align: left;
+ 
+  white-space: normal;
+}
+.zui-table tbody td {
+ 
+  padding: 10px;
+ 
+  white-space: normal;
+}
+.zui-wrapper {
+  position: relative;
+}
+.zui-scroller {
+  margin-left:  720px;
+  overflow-x: scroll;
+  overflow-y: visible;
+  width: 860px;
+}
+.zui-table .zui-sticky-col {
+
+  left: 0;
+  position: absolute;
+  top: auto;
+  width: 720px;
+}
+
+.prevNextButtons
+{
+  width: 100%;
+}

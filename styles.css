@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/newCSS/bootstrap.min.css';
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+/* @import "../node_modules/jquery/dist/jquery.min.js"; */
+/* @import 'assets/css/payment.css'; */
+
+input.ng-touched.ng-invalid{
+    border-color: red;
+}
+
+div.validation-error{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: red;
+}
+
+.mycard{
+height: 30px;
+width: 50%;
+margin-left: 20%;
+}
+
+
+
+

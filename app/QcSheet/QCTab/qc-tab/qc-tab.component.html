@@ -1,0 +1,152 @@
+<script type="text/javascript" language="javascript">
+  var ax = new ActiveXObject("WScript.Network");
+  document.write(ax.UserName + '<br />'); //logged in account name
+  document.write(ax.ComputerName + '<br />'); //Windows PC name
+</script>
+
+<div class="" [ngStyle]=" { 'background': 'url(./src/assets/img/manhattanBackground.png)  ',
+                            'height': '100%','background-position': 'center'  } ">
+  <table class="table">
+    <!-- Side Bar -->
+   <tr>
+     <td>
+         <div class=" myDiv3lg jumbotron sidenav" style=" max-width: 20%" >
+             <div>
+              <div class="" style="text-align: center;font-family: cursive">
+                <label for=""><h3><strong class ="usernameStyle">{{username}}</strong></h3></label>
+              </div>
+              <br>
+              <mat-radio-group aria-label="Select an option">
+                <div class="radioButtonGroup" >
+                    <div *ngFor="let entry of entries" style="margin-left: 4px">                      
+                            <div >
+                                    <mat-radio-button  [value]='entry.id'   (change)="onSelectionRadioButton(entry.description)"> {{entry.description}} </mat-radio-button>
+                            </div>
+                    </div>
+                </div>
+            </mat-radio-group>
+             </div>
+              <hr style="margin-top: 30px;">
+              <div style="text-align: center">
+                 <div class="">
+                     <label for="" style="margin-top: 40px;text-shadow: 0px 5px 17px;margin-bottom: 40px;"><h4><strong>Check Points</strong></h4></label>
+                   </div>
+                   <div *ngFor = 'let category of Categories'>
+                         <button class="btn btn-primary mybutton" name="{{category.Name}}"  (click)="clickFilter(category.Name,$event)"  ><strong>{{category.Name}}</strong></button>                  </div>
+                   <table class="table">
+                     <tr>
+                                          </tr>
+                   </table>
+ 
+              </div>
+ 
+            </div>
+     </td>
+ 
+     <!-- Home Screen -->
+     <td>
+          
+       <div class="row mytextboxes" style="    padding-top: 12px;">
+          
+           <div class="col-md-6 " style="margin-left: 30px">
+             <div class="row">
+                 <div class="col-md-4 " >
+                   <mat-form-field>
+                     <mat-label>Client Code</mat-label>
+                     <mat-select  [(value)]="selectedClient" >
+                       <mat-option *ngFor="let Client of ClientCodesOnly" [value]="Client.Client_Code" (click) = selectedDropValue()>
+                         {{Client.Client_Code}}
+                       </mat-option>
+                     </mat-select>
+                   </mat-form-field>
+                  
+                 </div>
+                 
+                 <div class="col-md-4 ">
+                   <mat-form-field>
+                     <mat-label>Type</mat-label>
+                     <mat-select  [(value)]="selectedType">
+                       <mat-option *ngFor="let Type of Types" [value]="Type.Type">
+                         {{Type.Type}}
+                       </mat-option>
+                     </mat-select>
+                   </mat-form-field>
+                 </div>
+                 
+                 <div class="col-md-4">
+                   <mat-form-field appearance="outline" >
+                     <mat-label>TFS CSO Development ID</mat-label>
+                     <input matInput placeholder=""  [(ngModel)] = "selectedTFSDevID">     
+                     <mat-hint></mat-hint>
+                   </mat-form-field>
+                 </div>
+               
+             </div>
+             <div class="row">
+               <div class="col-md-4">
+                 <mat-form-field>
+                   <mat-label>Extension Code</mat-label>
+                   <mat-select  [(value)]="selectedExtension">
+                     <mat-option *ngFor="let Extension of ExtentionCodes" [value]="Extension.Extension_code">
+                       {{Extension.Extension_code}}
+                     </mat-option>
+                   </mat-select>
+                 </mat-form-field>
+               </div>
+ 
+              
+ 
+               <div class="col-md-4 " >
+                 <mat-form-field>
+                   <mat-label>Project Code</mat-label>
+                   <mat-select  [(value)]="selectedProject">
+                     <mat-option *ngFor="let Project of ProjectCodes" [value]="Project.Project_Code">
+                       {{Project.Project_Code}}
+                     </mat-option>
+                   </mat-select>
+                 </mat-form-field>
+             </div>
+ 
+               <div class="col-md-4">
+                 <mat-form-field appearance="outline"  >
+                   <mat-label>TFS Source Codebase</mat-label>
+                   <input matInput placeholder="" [(ngModel)] = "selectedTFSSourceCodebase">     
+                   <mat-hint></mat-hint>
+                 </mat-form-field>
+               </div>
+             </div>
+           
+           </div>
+          
+           <div class="col-md-2 " >
+               <div>
+                 <button class="btn btn-success myLoadbtn" (click)= onLoadData() ><strong>LOAD</strong></button>
+               </div>
+               <div>
+                 <button class="btn btn-warning mySubmitButtons" (click) = "SubmitCurrentData()"><strong>SUBMIT</strong></button>
+               </div>
+           </div>
+         
+           <div class="col-md-4">
+            <table class="">     
+              <tr class=""> 
+                <td><h5><strong>{{FailedCheckPoint}}</strong></h5> </td>           
+                <td *ngFor ="let count of ReviewFailedCount">
+                 <button class="btn btn-danger"> {{count}} </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+       
+         </div>
+      
+       <div >
+           <app-check-points></app-check-points>
+           <!-- <router-outlet></router-outlet> -->
+       </div>
+       
+     </td>
+   </tr>
+ </table>
+ 
+</div>

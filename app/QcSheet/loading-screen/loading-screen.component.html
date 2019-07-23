@@ -1,0 +1,35 @@
+<label for=""><h3>Loading Please Wait...</h3></label>
+  <div class="loading-screen-wrapper" >      
+      <div class="loading-screen-icon">
+
+          <section>
+              <div class="loader loader-1">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+              </div>
+            </section>
+
+      </div>
+      <div class="loading-screen-icon">        
+        <div class="blobs">
+          <div class="blob-center"></div>
+          <div class="blob"></div>
+          <div class="blob"></div>
+          <div class="blob"></div>
+          <div class="blob"></div>
+          <div class="blob"></div>
+          <div class="blob"></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 9  0 1 0 0 9  1 0 9 0 1  1 0 0 18 -7" result="goo"/>
+              <feBlend in="SourceGraphic" in2="goo"/>
+            </filter>
+          </defs>
+        </svg>
+        
+      </div>
+    
+    </div>

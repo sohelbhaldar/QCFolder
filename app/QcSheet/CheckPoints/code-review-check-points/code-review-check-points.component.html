@@ -1,0 +1,195 @@
+
+<div class="zui-wrapper">
+    <div class="tableFixHead zui-scroller">    
+        <table class="table table-hover zui-table" >
+          <thead>
+              <tr>
+                  
+                  <td   style="background-color: lightgreen;"></td>                
+                  <td   style="background-color: lightgreen;"></td>                           
+                  <td style="background-color: lightgreen;color: black;word-wrap: unset"> Initial QC</td>
+                  <td style="background-color: lightgreen;"></td>
+                  <td style="background-color: orange;" ></td>
+                  <td style="background-color:orange;"></td>
+                  <td class="" style="background-color: orange;color: black;word-wrap: unset">1st QC </td>
+                  <td style="background-color: orange;">Rework</td>
+                  <td style="background-color: rgb(250, 95, 48);"></td>
+                  <td style="background-color:rgb(250, 95, 48);"></td>
+                  <td class="" style="background-color:rgb(250, 95, 48);color: black">2nd QC</td>
+                  <td  style="background-color:rgb(250, 95, 48);" > Rework</td>
+                 
+                </tr>
+          </thead>
+          <tbody>
+            <tr class="thead-dark" style="background-color:black;">
+              <!-- <th class="" style="background-color: greenyellow;color: black" >Initial_QC</th> -->
+              <div   class="zui-sticky-col" style="background-color:black;">
+                      <th  >No.</th>
+                      <th   >Applied For</th>
+                      <th   >Check Points</th>
+              </div>          
+              <th  class="">Developer </th>
+              <th  class="">Reviewer</th>
+              <th  class="">Comment</th>
+              <td style="background-color:orange;"></td>
+              <!-- <th  class="" style="background-color: orange;color: black">1st_QC_Rework</th> -->
+              <th  class="">Developer </th>
+              <th  class="">Reviewer</th>
+              <th  class="">Comment</th>
+              <td style="background-color:rgb(250, 95, 48);"></td>
+              <!-- <th  class="SpacingDiv" style="background-color:rgb(250, 95, 48);color: black">2nd_QC_Rework</th> -->
+              <th  class="">Developer </th>
+              <th  class="">Reviewer</th>
+              <th  class="">Comment</th>
+            </tr>
+            <tr  *ngFor = "let checkPoint of checkPointData; let rowIndex=index" >
+  
+               <!--////////////////////////// Initial QC /////////////////////////////-->
+  
+              <!-- <td  style="background-color:rgb(203, 255, 126);color: black"></td> -->
+              <div class="zui-sticky-col">
+                      <td >
+                          <button class="btn" style="background: white"  name="{{checkPoint.Check_Id}}">
+                                  {{checkPoint.Check_Id}}
+                          </button>
+                      </td>
+                      <td class="">{{checkPoint.Applied_For}}</td>
+                      <td class="">{{checkPoint.Check_Points}}</td>
+              </div>           
+              <td>
+                  <mat-radio-group aria-label="Select an option"   >
+                      <div class="" >
+                          <div *ngFor="let entryDevelop of entriesDeveloper">                      
+                                  <div class="">
+  
+                                          <mat-radio-button
+                                            [checked] = "entryDevelop.description === checkPoint.Developer" 
+                                            [disabled] = "isDisabledDeveloper" class="DeveloperRadioQC1" 
+                                          id='DeveloperQC1{{rowIndex}}{{entryDevelop.description}}' value='QC1{{entryDevelop.id}}'
+                                          (change)="onSelectionChangeForDeveloper(entryDevelop.description,entryDevelop.color,checkPoint.Check_Id)" >
+                                          {{entryDevelop.description}}
+                                        </mat-radio-button>
+                                  </div>
+                          </div>
+                      </div>
+                  </mat-radio-group>
+              </td>
+              <td>
+                  <mat-radio-group aria-label="Select an option">
+                      <div class="" >
+                          <div *ngFor="let entryReview of entriesReviewer" >                      
+                                  <div class="">
+                                          <mat-radio-button
+                                          [checked] = "entryReview.description === checkPoint.QC_Resource" 
+                                          [disabled] = "isDisabledReviewer" class="ReviewerRadioQC1" 
+                                          id='ReviewerQC1{{rowIndex}}{{entryReview.description}}' value='AQC1{{entryReview.id}}' 
+                                          (change)="onSelectionChangeForReviewer(entryReview.description,entryReview.color,checkPoint.Check_Id)" >
+                                          {{entryReview.description}}
+                                        </mat-radio-button>
+                                  </div>
+                          </div>
+                      </div>
+                  </mat-radio-group>
+              </td>
+              <td>
+                  <!-- <textarea name="Comments" id="{{checkPoint.Check_Id}}" cols="20" rows="5" placeholder=" Enter Comment Here" (focusout)="onkey(checkPoint.Check_Id,checkPointData[checkPoint.Check_Id-1].Value.Comment)"  [(ngModel)] = "checkPointData[checkPoint.Check_Id-1].Value.Comment">{{checkPoint.Comment}}</textarea> -->
+                  <textarea name="Comments" id="{{checkPoint.Check_Id}}" cols="20" rows="5" placeholder=" Enter Comment Here"></textarea>
+                </td>
+              <td style="background-color:orange;"></td>
+              <!--////////////////////////// 1st_QC_Rework /////////////////////////////-->
+  
+              <!-- <td  class=""style="background-color: rgb(255, 198, 93)" > </td> -->
+              <td>
+                  <mat-radio-group aria-label="Select an option"   >
+                      <div class="" >
+                          <div *ngFor="let entryDevelop of entriesDeveloper1">                      
+                                  <div class="">
+  
+                                          <mat-radio-button
+                                            [checked] = "entryDevelop.description === checkPoint.Developer_1" 
+                                            [disabled] = "isDisabledDeveloper1" class="DeveloperRadio1QC2" 
+                                          id='Developer1QC2{{rowIndex}}{{entryDevelop.description}}' value='1QC2{{entryDevelop.id}}'
+                                          (change)="onSelectionChangeForDeveloper1(entryDevelop.description,entryDevelop.color,checkPoint.Check_Id)" >
+                                          {{entryDevelop.description}}
+                                        </mat-radio-button>
+                                  </div>
+                          </div>
+                      </div>
+                  </mat-radio-group>
+              </td>
+              <td>
+                  <mat-radio-group aria-label="Select an option"  id="ReviewerGroup">
+                      <div class="" >
+                          <div *ngFor="let entryReview of entriesReviewer1" >                      
+                                  <div class="">
+                                          <mat-radio-button
+                                          [checked] = "entryReview.description === checkPoint.QC_Resource_1" 
+                                          [disabled] = "isDisabledReviewer1" class="ReviewerRadio1" 
+                                          id='Reviewer1{{rowIndex}}{{entryReview.description}}' value='A1{{entryReview.id}}' 
+                                          (change)="onSelectionChangeForReviewer1(entryReview.description,entryReview.color,checkPoint.Check_Id)" >
+                                          {{entryReview.description}}
+                                        </mat-radio-button>
+                                  </div>
+                          </div>
+                      </div>
+                  </mat-radio-group>
+              </td>
+              <td>
+                  <!-- <textarea name="Comments" id="{{checkPoint.Check_Id}}" cols="20" rows="5" placeholder=" Enter Comment Here" (focusout)="onkey(checkPoint.Check_Id,checkPointData[checkPoint.Check_Id-1].Value.Comment_1)"  [(ngModel)] = "checkPointData[checkPoint.Check_Id-1].Value.Comment_1">{{checkPoint.Comment_1}}</textarea> -->
+                  <textarea name="Comments" id="{{checkPoint.Check_Id}}" cols="20" rows="5" placeholder=" Enter Comment Here">{{checkPoint.Comment_1}}</textarea>
+                </td>
+              <!-- rgb(245, 166, 120) -->
+              <!--//////////////////////////////// 2st_QC_Rework ///////////////////////////////////////////////////-->
+              <td style="background-color:rgb(250, 95, 48);"></td>
+              <!-- <td  class=""style="background-color:rgb(245, 166, 120)" > </td> -->
+              <td>
+                  <mat-radio-group aria-label="Select an option"   >
+                      <div class="" >
+                          <div *ngFor="let entryDevelop of entriesDeveloper2">                      
+                                  <div class="">
+  
+                                          <mat-radio-button
+                                            [checked] = "entryDevelop.description === checkPoint.Developer_2" 
+                                            [disabled] = "isDisabledDeveloper2" class="DeveloperRadio2QC3" 
+                                          id='Developer2QC3{{rowIndex}}{{entryDevelop.description}}' value='2QC3{{entryDevelop.id}}'
+                                          (change)="onSelectionChangeForDeveloper2(entryDevelop.description,entryDevelop.color,checkPoint.Check_Id)" >
+                                          {{entryDevelop.description}}
+                                        </mat-radio-button>
+                                  </div>
+                          </div>
+                      </div>
+                  </mat-radio-group>
+              </td>
+              <td>
+                  <mat-radio-group aria-label="Select an option"  id="ReviewerGroup">
+                      <div class="" >
+                          <div *ngFor="let entryReview of entriesReviewer2" >                      
+                                  <div class="">
+                                          <mat-radio-button
+                                          [checked] = "entryReview.description === checkPoint.QC_Resource_2" 
+                                          [disabled] = "isDisabledReviewer2" class="ReviewerRadio2QC3" 
+                                          id='Reviewer2QC3{{rowIndex}}{{entryReview.description}}' value='A2QC3{{entryReview.id}}' 
+                                          (change)="onSelectionChangeForReviewer2(entryReview.description,entryReview.color,checkPoint.Check_Id)" >
+                                          {{entryReview.description}}
+                                        </mat-radio-button>
+                                  </div>
+                          </div>
+                      </div>
+                  </mat-radio-group>
+              </td>
+              <td>
+                  <!-- <textarea name="Comments" id="{{checkPoint.Check_Id}}" cols="20" rows="5" placeholder=" Enter Comment Here" (focusout)="onkey(checkPoint.Check_Id,checkPointData[checkPoint.Check_Id-1].Value.Comment_2)"  [(ngModel)] = "checkPointData[checkPoint.Check_Id-1].Value.Comment_2">{{checkPoint.Comment_2}}</textarea> -->
+                  <textarea name="Comments" id="{{checkPoint.Check_Id}}" cols="20" rows="5" placeholder=" Enter Comment Here"></textarea>
+
+              </td>
+            </tr>
+           
+          </tbody>
+        </table>
+    </div>
+        
+  </div>
+   
+    
+  
+  

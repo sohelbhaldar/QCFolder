@@ -1,0 +1,31 @@
+<br><br>
+<div style="text-align: center">
+        <h1><strong>Login</strong></h1>
+    </div>
+
+<br><br>
+<div class="container jumbotron" style="width: 40%">
+        <mat-radio-group aria-label="Select an option">
+            <div class="row" >
+                <div *ngFor="let entry of entries">                      
+                        <div class="col-lg-6" style="margin-right: 50px">
+                                <mat-radio-button [value]='entry.id' (change)="onSelectionChange(entry.description)"> {{entry.description}} </mat-radio-button>
+                        </div>
+                </div>
+            </div>
+        </mat-radio-group>
+        <hr>
+        <div class="form-group">
+            <label>Username:</label>
+            <input name="Email" class="form-control" [(ngModel)]="Username"  required> 
+        </div>   
+    <div class="form-group">
+        <label>Password:</label>
+        <input name="Password" class="form-control" [(ngModel)]="Password" required> 
+    </div>
+    <div class="form-group" style="margin-top: 40px">
+        <button (click)="Login()" class="btn btn-lg btn-block btn-info">Login</button>   
+    </div> 
+</div>
+     
+

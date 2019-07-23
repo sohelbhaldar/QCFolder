@@ -1,0 +1,22 @@
+
+<div style="height: 250px;width: 600px;text-align: center">
+  <h2 matDialogTitle>Previous QC Failed </h2>
+  <mat-dialog-content>
+    <h4>Check Points</h4>
+    <br>
+    <table class="table">
+     
+      <tr class="">
+        <td *ngFor ="let count of data">
+         <button class="btn btn-danger"> {{count}}</button>
+        </td>
+      </tr>
+    </table>
+      <div >
+      </div>
+    
+  </mat-dialog-content>
+  <mat-dialog-actions >  
+        <button style="margin-left: 45%;font-weight: bolder" mat-button matDialogClose="cancel" color="primary">Ok</button>  
+  </mat-dialog-actions>
+</div>

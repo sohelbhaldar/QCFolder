@@ -1,0 +1,20 @@
+
+<div style="text-align: center; padding-top: 15px;background: #061d48;"  class="shadow"  >
+  <label for="" style="font-family: cursive; color: white"><h3><strong  style="text-shadow: 0px 5px 20px;">{{lable}}</strong></h3></label>
+</div>
+
+<div class="manBack">
+   <!-- [ngStyle]="{background: 'url(./src/assets/img/Bus1.jpg)' }"> -->
+    <mat-tab-group  class="matLable" (selectedTabChange)="yourFn($event)"> 
+
+        <mat-tab label="Code Review"> 
+          <app-code-review-tab></app-code-review-tab>
+          </mat-tab>
+
+        <mat-tab label="QC" >        
+         <app-qc-tab></app-qc-tab>
+           </mat-tab>
+           
+      </mat-tab-group>
+</div>
+
